@@ -27,15 +27,6 @@ function createBooks(arr) {
   }
   return books;
 }
-  
-function displayBooks() {
-  const listOfBooks = document.querySelector('.container-section');
-  listOfBooks.innerHTML = `
-    <ul class="book-ul">
-      ${createBooks(storeData)}
-    </ul>
-  `;
-}
 
 // Displaying data in the container
 function displayBooks() {
