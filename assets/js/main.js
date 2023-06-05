@@ -48,16 +48,6 @@ function addNewData(bookTitle, bookAuthor) {
   updateData();
   displayBooks();
 }
-  
-function addNewData(titleBook, authorBook) {
-  const book = {
-    title: titleBook,
-    author: authorBook
-  };
-  storeData.push(book);
-  updateData();
-  displayBooks();
-}
 
 function removeBook(i) {
   storeData.splice(i, 1);
