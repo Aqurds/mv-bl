@@ -40,10 +40,10 @@ if (localStorage.getItem('Added Books') === null) {
     `;
   }
   
-  function addNewData(bookTitle, bookAuthor) {
+  function addNewData(titleBook, authorBook) {
     const book = {
-      title: bookTitle,
-      author: bookAuthor
+      title: titleBook,
+      author: authorBook
     };
     storeData.push(book);
     updateData();
