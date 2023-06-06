@@ -10,6 +10,19 @@ function updateData() {
   localStorage.setItem('Added Books', JSON.stringify(storeData));
 }
 
+function createBooks(arr) {
+  let books = '';
+  for (let i = 0; i < arr.length; i += 1) {
+    books += `
+      <p>${arr[i].title}</p>
+      <p>${arr[i].author}</p>
+      <button onclick="removeBook(${i})">Remove</button>
+      <hr/>
+    `;
+  }
+  return books;
+}
+
 // Displaying data in the container
 function displayBooks() {
   const listOfBooks = document.querySelector('.container-section');
@@ -41,19 +54,6 @@ form.addEventListener('submit', (e) => {
   titleInput.value = '';
   authorInput.value = '';
 });
-
-function createBooks(arr) {
-  let books = '';
-  for (let i = 0; i < arr.length; i += 1) {
-    books += `
-      <p>${arr[i].title}</p>
-      <p>${arr[i].author}</p>
-      <button onclick="removeBook(${i})">Remove</button>
-      <hr/>
-    `;
-  }
-  return books;
-}
 
 // Remove a book from local storage
 function removeBook(i) {
