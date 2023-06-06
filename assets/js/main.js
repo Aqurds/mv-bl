@@ -1,9 +1,7 @@
-// Checking if local storage is empty and adding an empty array if necessary
 if (localStorage.getItem('Added Books') === null) {
   localStorage.setItem('Added Books', JSON.stringify([]));
 }
 
-// Retrieving data from local storage
 const storeData = JSON.parse(localStorage.getItem('Added Books'));
 
 function updateData() {
@@ -23,7 +21,6 @@ function createBooks(arr) {
   return books;
 }
 
-// Displaying data in the container
 function displayBooks() {
   const listOfBooks = document.querySelector('.container-section');
   listOfBooks.innerHTML = `
@@ -33,7 +30,6 @@ function displayBooks() {
   `;
 }
 
-// Adding new data to local storage
 function addNewData(bookTitle, bookAuthor) {
   const book = {
     title: bookTitle,
@@ -44,7 +40,6 @@ function addNewData(bookTitle, bookAuthor) {
   displayBooks();
 }
 
-// Getting values from input fields
 const form = document.querySelector('#book-form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -55,7 +50,6 @@ form.addEventListener('submit', (e) => {
   authorInput.value = '';
 });
 
-// Remove a book from local storage
 function removeBook(i) {
   storeData.splice(i, 1);
   updateData();
