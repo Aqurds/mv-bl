@@ -45,7 +45,7 @@ function removeBook(index) {
 function addBook(title, author) {
   const book = {
     title,
-    author
+    author,
   };
   bookCollection.push(book);
   updateData();
