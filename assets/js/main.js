@@ -1,6 +1,11 @@
 // Check if there are any books in localStorage, and if not, initialize an empty array
 const bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
 
+// Function to update the data in localStorage
+function updateData() {
+  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+}
+
 // Function to display books in the page
 function displayBooks() {
   const bookList = document.querySelector('.container-section');
@@ -29,6 +34,13 @@ function displayBooks() {
   });
 }
 
+// Function to remove a book from the collection
+function removeBook(index) {
+  bookCollection.splice(index, 1);
+  updateData();
+  displayBooks();
+}
+
 // Function to add a new book to the collection
 function addBook(title, author) {
   const book = {
@@ -36,13 +48,6 @@ function addBook(title, author) {
     author
   };
   bookCollection.push(book);
-  updateData();
-  displayBooks();
-}
-
-// Function to remove a book from the collection
-function removeBook(index) {
-  bookCollection.splice(index, 1);
   updateData();
   displayBooks();
 }
