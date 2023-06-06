@@ -16,6 +16,10 @@
       "eol-last": "off",
       "import/extensions": [ 1, {
         "js": "always", "json": "always"
+      }],
+      "no-unused-vars": "off",
+      "no-use-before-define": ["error", {
+        "functions": false
       }]
     },
     "ignorePatterns": [
