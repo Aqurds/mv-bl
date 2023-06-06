@@ -1,9 +1,21 @@
 if (localStorage.getItem('Added Books') === null) {
   localStorage.setItem('Added Books', JSON.stringify([]));
 }
-  
+
 const storeData = JSON.parse(localStorage.getItem('Added Books'));
-  
+
+
+// Adding new data to local storage
+function addNewData(bookTitle, bookAuthor) {
+  const book = {
+    title: bookTitle,
+    author: bookAuthor
+  };
+  storeData.push(book);
+  updateData();
+  displayBooks();
+}
+
 // Getting values from input fields
 const form = document.querySelector('#book-form');
 form.addEventListener('submit', (e) => {
@@ -36,17 +48,6 @@ function displayBooks() {
       ${createBooks(storeData)}
     </ul>
   `;
-}
-
-// Adding new data to local storage
-function addNewData(bookTitle, bookAuthor) {
-  const book = {
-    title: bookTitle,
-    author: bookAuthor
-  };
-  storeData.push(book);
-  updateData();
-  displayBooks();
 }
 
 function removeBook(i) {
