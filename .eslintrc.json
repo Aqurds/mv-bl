@@ -19,10 +19,7 @@
       }],
       "no-unused-vars": "off",
       "no-use-before-define": ["error", {
-        "functions": false,
-        "classes": true,
-        "variables": true,
-        "allowNamedExports": false
+        "functions": false
       }]
     },
     "ignorePatterns": [
