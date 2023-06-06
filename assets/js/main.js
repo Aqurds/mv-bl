@@ -52,11 +52,6 @@ function addBook(title, author) {
   displayBooks();
 }
 
-// Function to update the data in localStorage
-function updateData() {
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-}
-
 // Add event listener to the form
 const form = document.querySelector('#book-form');
 form.addEventListener('submit', (e) => {
