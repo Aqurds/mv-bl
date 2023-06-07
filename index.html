@@ -9,7 +9,23 @@
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
+      <header>
+        <nav class="navbar">
+            <a href="" class="awsome-book">Awesome Books</a>
+            <ul class="nav-list">
+                <li><a href="#" data-target="book-list-row" class="nav-item nav-active">List</a></li>
+                <li><a href="#" data-target="add-book-row" class="nav-item">Add new</a></li>
+                <li><a href="#" data-target="contact" class="nav-item">Contact</a></li>
+            </ul>
+        </nav>
+      </header>
+
+      <div class="time">
+        <p id="date-time"></p>
+      </div>
+
       <section class="container">
+        <!-- This section contains table of book list -->
         <section class="row book-list-row">
           <section class="col-12">
             <h1>All awsome books</h1>
@@ -19,9 +35,10 @@
             </table>
           </section>
         </section>
+
+        <!-- This section contains "add book" interface -->
         <section class="row add-book-row">
           <section class="col-12">
-            <div class="horizon-sign"></div>
             <h2>Add a new book</h2>
             <form id="book-form">
                 <input type="text" placeholder="Title" name="title" class="book-title"><br>
@@ -30,7 +47,37 @@
             </form>
           </section>
         </section>
+
+        <!-- This section contains contact content -->
+        <section class="row contact">
+          <section class="col-12">
+            <h2>Contact information</h2>
+          </section>
+          <acricle class="contact-info">
+            <p>
+              Do have any questions or you just want to say "Hello":<br>
+              You can reach out to us!
+            </p>
+            <ul class="contact-address">
+              <li>
+                Our e-mail: contact@gmail.com
+              </li>
+              <li>
+                Our phone number: 999 999 9999
+              </li>
+              <li>
+                Our address: Streetname 22, 84503 City, Country
+              </li>
+            </ul>
+          </acricle>
+        </section>
       </section>
-        <script src="assets/js/main.js"></script>
+
+      <footer>
+        <div class="footer">
+         <p>Copyright @Omar_Sadaf <span id="footer-year"></span></p>
+        </div>
+      </footer>
+      <script src="assets/js/main.js"></script>
     </body>
 </html>
