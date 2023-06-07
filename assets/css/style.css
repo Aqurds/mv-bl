@@ -14,6 +14,19 @@ body {
   margin-bottom: 20px;
 }
 
+.booklist-table button {
+  border: 3px solid black;
+  border-radius: 0px;
+}
+
+.horizon-sign {
+  width: 100px;
+  height: 3px;
+  background: black;
+  margin: -10px auto 35px;
+  border-radius: 50%;
+}
+
 .add-book-row {
   margin-top: 20px;
   margin-bottom: 50px;
@@ -47,8 +60,13 @@ body {
   border: 3px solid black;
   margin-bottom: 10px;
   width: 350px;
+  height: 40px;
+  padding-left: 20px;
 }
 
 .add-button {
   float: right;
+  width: 100px;
+  border: 3px solid black;
+  border-radius: 0px;
 }
