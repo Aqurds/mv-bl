@@ -1,69 +1,88 @@
-// Check if there are any books in localStorage, and if not, initialize an empty array
-const bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
+class Book {
+  constructor(formElem, bookCollectionName, elemToInsertData) {
+    this.bookCollectionName = bookCollectionName;
+    this.elemToInsertData = elemToInsertData;
+    this.formElem = document.querySelector(formElem);
+    this.bookCollection = JSON.parse(localStorage.getItem(this.bookCollectionName)) || [];
+    this.bookTitleField = document.querySelector('.book-title');
+    this.bookAuthorField = document.querySelector('.book-author');
+    this.formEventHandler();
+    this.displayBooks();
+  }
 
-// Function to update the data in localStorage
-function updateData() {
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-}
+  updateLocalStorageData() {
+    // This method will update data in localStorage
+    localStorage.setItem(this.bookCollectionName, JSON.stringify(this.bookCollection));
+  }
 
-// Function to display books in the page
-function displayBooks() {
-  const bookList = document.querySelector('.container-section');
-  bookList.innerHTML = '';
+  addBookToList(title, author) {
+    // This method will add a new book into the booklist
+    if (!title || !author) {
+      alert('Please, insert title & author!');
+      return;
+    }
+    this.bookCollection.push({ title, author });
+    this.updateLocalStorageData();
+    this.displayBooks();
+  }
 
-  bookCollection.forEach((book, index) => {
-    const bookItem = document.createElement('div');
-    bookItem.classList.add('book-item');
+  removeBookFromList(index) {
+    // This method will remove the selected book from the booklist
+    this.bookCollection.splice(index, 1);
+    this.updateLocalStorageData();
+    this.displayBooks();
+  }
 
-    const titlePara = document.createElement('p');
-    titlePara.textContent = `Title: ${book.title}`;
-
-    const authorPara = document.createElement('p');
-    authorPara.textContent = `Author: ${book.author}`;
-
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', () => {
-      removeBook(index);
+  generateHtmlForBookList() {
+    // This method will generate HTML element for the complete booklist
+    let boilerPlate = '';
+    this.bookCollection.forEach((book, index) => {
+      boilerPlate += `<tr class="book-item">
+        <td>"${book.title}" by ${book.author}</td>
+        <td>
+          <button class="btn btn-light" data-index=${index}>
+            Remove
+          </button>
+        </td>
+      </tr>`;
     });
+    return boilerPlate;
+  }
 
-    bookItem.appendChild(titlePara);
-    bookItem.appendChild(authorPara);
-    bookItem.appendChild(removeButton);
-    bookList.appendChild(bookItem);
-  });
+  activateRemoveButton() {
+    // This method will add & activate remove event on remove button in each book row
+    const table = document.querySelector('.booklist-table');
+    const btn = table.querySelectorAll('button');
+    btn.forEach((btnR, index) => {
+      btnR.addEventListener('click', () => {
+        this.removeBookFromList(index);
+      });
+    });
+  }
+
+  displayBooks() {
+    // This method will generate the complete booklist and display into the HTM
+    const bookList = document.querySelector(this.elemToInsertData);
+    bookList.innerHTML = this.generateHtmlForBookList();
+    this.activateRemoveButton();
+    this.formInputFieldNormalize();
+  }
+
+  formInputFieldNormalize() {
+    // This method will normalize the form input fields
+    this.bookTitleField.value = '';
+    this.bookAuthorField.value = '';
+  }
+
+  formEventHandler() {
+    // This method will handle the form event
+    this.formElem.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.addBookToList(this.bookTitleField.value, this.bookAuthorField.value);
+      this.titleInput.value = '' || this.titleInput.value;
+      this.authorInput.value = '' || this.authorInput.value;
+    });
+  }
 }
 
-// Function to remove a book from the collection
-function removeBook(index) {
-  bookCollection.splice(index, 1);
-  updateData();
-  displayBooks();
-}
-
-// Function to add a new book to the collection
-function addBook(title, author) {
-  const book = {
-    title,
-    author,
-  };
-  bookCollection.push(book);
-  updateData();
-  displayBooks();
-}
-
-// Add event listener to the form
-const form = document.querySelector('#book-form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const titleInput = document.querySelector('.book-title');
-  const authorInput = document.querySelector('.book-author');
-  addBook(titleInput.value, authorInput.value);
-  titleInput.value = '';
-  authorInput.value = '';
-});
-
-// Display the existing books on page load
-document.addEventListener('DOMContentLoaded', () => {
-  displayBooks();
-});
+const bookList = new Book('#book-form', 'bookCollection', '.booklist-table');
