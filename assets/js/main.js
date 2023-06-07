@@ -135,7 +135,7 @@ class Book {
             Remove
           </button>
         </td>
-      </tr>`
+      </tr>`;
     });
     return boilerPlate;
   }
