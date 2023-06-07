@@ -16,6 +16,7 @@ class Book {
   }
 
   addBookToList(title, author) {
+    // This method will add a new book into the booklist
     if (!title || !author) {
       alert('Please, insert title & author!');
       return;
@@ -26,12 +27,14 @@ class Book {
   }
 
   removeBookFromList(index) {
+    // This method will remove the selected book from the booklist
     this.bookCollection.splice(index, 1);
     this.updateLocalStorageData();
     this.displayBooks();
   }
 
   generateHtmlForBookList() {
+    // This method will generate HTML element for the complete booklist
     let boilerPlate = '';
     this.bookCollection.forEach((book, index) => {
       boilerPlate += `<tr class="book-item">
@@ -47,6 +50,7 @@ class Book {
   }
 
   activateRemoveButton() {
+    // This method will add & activate remove event on remove button in each book row
     const table = document.querySelector('.booklist-table');
     const btn = table.querySelectorAll('button');
     btn.forEach((btnR, index) => {
@@ -57,6 +61,7 @@ class Book {
   }
 
   displayBooks() {
+    // This method will generate the complete booklist and display into the HTM
     const bookList = document.querySelector(this.elemToInsertData);
     bookList.innerHTML = this.generateHtmlForBookList();
     this.activateRemoveButton();
@@ -64,11 +69,13 @@ class Book {
   }
 
   formInputFieldNormalize() {
+    // This method will normalize the form input fields
     this.bookTitleField.value = '';
     this.bookAuthorField.value = '';
   }
 
   formEventHandler() {
+    // This method will handle the form event
     this.formElem.addEventListener('submit', (e) => {
       e.preventDefault();
       this.addBookToList(this.bookTitleField.value, this.bookAuthorField.value);
