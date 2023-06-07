@@ -100,15 +100,28 @@ function toggleElement(target) {
       elem.classList.add('content-inactive')
     }
   })
-}
+};
+
+function toggleNav(targetNav) {
+  const elemUl = document.querySelector('.nav-list');
+  const allUl = elemUl.querySelectorAll('a');
+  allUl.forEach((elem, index) => {
+    if (elem == targetNav) {
+      elem.classList.add('nav-active')
+    } else {
+      elem.classList.remove('nav-active')
+    }
+  })
+};
+
 const triggerElem = document.querySelectorAll('.nav-item')
 triggerElem.forEach((singleElem, index) => {
   singleElem.addEventListener('click', (e) => {
     e.preventDefault();
     const targetSection = singleElem.className;
     const targetSectionClass = singleElem.getAttribute('data-target')
-    console.log(targetSectionClass, targetSection);
     toggleElement(targetSectionClass)
+    toggleNav(singleElem)
   })
 })
 
@@ -117,6 +130,6 @@ const dateTime = new Date()
 const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const currentYear = dateTime.getFullYear();
 const currentMonth = monthList[dateTime.getMonth()];
-console.log(currentMonth)
-document.querySelector('#date-time').innerHTML = dateTime.toLocaleString().split('/')[0];
+const currentDateTimeString = dateTime.toLocaleString().split('/')
+document.querySelector('#date-time').innerHTML = `${currentMonth} ${currentDateTimeString[1]} ${currentDateTimeString[2]}`;
 document.querySelector('#footer-year').innerHTML = currentYear;
