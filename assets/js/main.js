@@ -86,3 +86,37 @@ class Book {
 }
 
 const bookList = new Book('#book-form', 'bookCollection', '.booklist-table');
+
+
+// Dynamic content section code
+function toggleElement(target) {
+  const allSiblinsElem = document.querySelectorAll('.row')
+  allSiblinsElem.forEach((elem, index) => {
+    if (elem.className.split(' ')[1] == target) {
+      elem.classList.remove('content-inactive')
+      elem.classList.add('content-active')
+    } else {
+      elem.classList.remove('content-active')
+      elem.classList.add('content-inactive')
+    }
+  })
+}
+const triggerElem = document.querySelectorAll('.nav-item')
+triggerElem.forEach((singleElem, index) => {
+  singleElem.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetSection = singleElem.className;
+    const targetSectionClass = singleElem.getAttribute('data-target')
+    console.log(targetSectionClass, targetSection);
+    toggleElement(targetSectionClass)
+  })
+})
+
+// Set date & time dynamically in "under navigation" & footer
+const dateTime = new Date()
+const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const currentYear = dateTime.getFullYear();
+const currentMonth = monthList[dateTime.getMonth()];
+console.log(currentMonth)
+document.querySelector('#date-time').innerHTML = dateTime.toLocaleString().split('/')[0];
+document.querySelector('#footer-year').innerHTML = currentYear;

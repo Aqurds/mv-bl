@@ -19,11 +19,12 @@
             </ul>
         </nav>
       </header>
-      <div class="time">
-        <p>March 19th 2021, 9:25:32 am</p>
-      </div>
-      <section class="container">
 
+      <div class="time">
+        <p id="date-time">March 19th 2021, 9:25:32 am</p>
+      </div>
+
+      <section class="container">
         <!-- This section contains table of book list -->
         <section class="row book-list-row">
           <section class="col-12">
@@ -38,7 +39,6 @@
         <!-- This section contains "add book" interface -->
         <section class="row add-book-row">
           <section class="col-12">
-            <div class="horizon-sign"></div>
             <h2>Add a new book</h2>
             <form id="book-form">
                 <input type="text" placeholder="Title" name="title" class="book-title"><br>
@@ -72,6 +72,12 @@
           </acricle>
         </section>
       </section>
-        <script src="assets/js/main.js"></script>
+
+      <footer>
+        <div class="footer">
+         <p>Copyright @Omar_Sadaf <span id="footer-year"></span></p>
+        </div>
+      </footer>
+      <script src="assets/js/main.js"></script>
     </body>
 </html>
