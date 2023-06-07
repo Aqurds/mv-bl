@@ -45,7 +45,7 @@ function displayBooks() {
     const titlePara = document.createElement('td');
     titlePara.textContent = `"${book.title}" by ${book.author}`;
 
-    const removeTd = document.createElement('td')
+    const removeTd = document.createElement('td');
     const removeButton = document.createElement('button');
     removeButton.classList.add('btn');
     removeButton.classList.add('btn-light');
@@ -54,7 +54,7 @@ function displayBooks() {
       removeBook(index);
     });
 
-    removeTd.appendChild(removeButton)
+    removeTd.appendChild(removeButton);
     bookItem.appendChild(titlePara);
     bookItem.appendChild(removeTd);
     bookList.appendChild(bookItem);
