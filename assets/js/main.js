@@ -7,29 +7,54 @@ function updateData() {
 }
 
 // Function to display books in the page
+// function displayBooks() {
+//   const bookList = document.querySelector('.container-section');
+//   bookList.innerHTML = '';
+
+//   bookCollection.forEach((book, index) => {
+//     const bookItem = document.createElement('div');
+//     bookItem.classList.add('book-item');
+
+//     const titlePara = document.createElement('p');
+//     titlePara.textContent = `Title: ${book.title}`;
+
+//     const authorPara = document.createElement('p');
+//     authorPara.textContent = `Author: ${book.author}`;
+
+//     const removeButton = document.createElement('button');
+//     removeButton.textContent = 'Remove';
+//     removeButton.addEventListener('click', () => {
+//       removeBook(index);
+//     });
+
+//     bookItem.appendChild(titlePara);
+//     bookItem.appendChild(authorPara);
+//     bookItem.appendChild(removeButton);
+//     bookList.appendChild(bookItem);
+//   });
+// }
+
 function displayBooks() {
-  const bookList = document.querySelector('.container-section');
+  const bookList = document.querySelector('.booklist-table');
   bookList.innerHTML = '';
 
   bookCollection.forEach((book, index) => {
-    const bookItem = document.createElement('div');
+    const bookItem = document.createElement('tr');
     bookItem.classList.add('book-item');
 
-    const titlePara = document.createElement('p');
-    titlePara.textContent = `Title: ${book.title}`;
+    const titlePara = document.createElement('td');
+    titlePara.textContent = `"${book.title}" by ${book.author}`;
 
-    const authorPara = document.createElement('p');
-    authorPara.textContent = `Author: ${book.author}`;
-
+    const removeTd = document.createElement('td')
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.addEventListener('click', () => {
       removeBook(index);
     });
 
+    removeTd.appendChild(removeButton)
     bookItem.appendChild(titlePara);
-    bookItem.appendChild(authorPara);
-    bookItem.appendChild(removeButton);
+    bookItem.appendChild(removeTd);
     bookList.appendChild(bookItem);
   });
 }

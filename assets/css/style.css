@@ -1,7 +1,54 @@
 body {
   font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.book-list-row {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.book-list-row h1 {
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-book-row {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.table-book-list {
+  border: 3px solid black;
+}
+
+.table-book-list td {
+  padding: 10px 20px;
+  border: none;
+}
+
+.booklist-table tr td:last-child {
+  text-align: right;
+}
+
+.add-book-row h2 {
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+#book-form {
+  width: 350px;
+  margin: auto;
+}
+
+#book-form input {
+  border: 3px solid black;
+  margin-bottom: 10px;
+  width: 350px;
 }
 
 .add-button {
-  background-color: aqua;
+  float: right;
 }
