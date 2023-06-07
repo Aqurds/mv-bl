@@ -111,24 +111,23 @@ class Book {
 
   addBook(title, author) {
     if (!title || !author) {
-      alert('Please, insert title & author!')
+      alert('Please, insert title & author!');
       return;
     }
-    this.bookCollection.push({title, author});
+    this.bookCollection.push({ title, author });
     this.updateData();
     this.displayBooks();
   }
 
   removeBook(index) {
-    console.log("hello")
     this.bookCollection.splice(index, 1);
     this.updateData();
     this.displayBooks();
   }
 
   generateHtmlForBookList() {
-    let boilerPlate = ''
-    this.bookCollection.forEach((book,index) => {
+    let boilerPlate = '';
+    this.bookCollection.forEach((book, index) => {
       boilerPlate += `<tr class="book-item">
         <td>"${book.title}" by ${book.author}</td>
         <td>
@@ -137,25 +136,24 @@ class Book {
           </button>
         </td>
       </tr>`
-    })
-    return boilerPlate
+    });
+    return boilerPlate;
   }
 
   activateRemoveButton() {
-    const table = document.querySelector('.booklist-table')
-    const btn = table.querySelectorAll('button')
-    console.log(btn)
-    btn.forEach((btn_r, index) => {
-      btn_r.addEventListener('click', () => {
-        this.removeBook(index)
-      })
-    })
+    const table = document.querySelector('.booklist-table');
+    const btn = table.querySelectorAll('button');
+    btn.forEach((btnR, index) => {
+      btnR.addEventListener('click', () => {
+        this.removeBook(index);
+      });
+    });
   }
 
   displayBooks() {
     const bookList = document.querySelector(this.elemToInsertData);
     bookList.innerHTML = '';
-    bookList.innerHTML = this.generateHtmlForBookList()
+    bookList.innerHTML = this.generateHtmlForBookList();
     this.activateRemoveButton();
   }
 
@@ -171,4 +169,4 @@ class Book {
   }
 }
 
-const bookList = new Book("#book-form", "bookCollection", ".booklist-table")
+const bookList = new Book('#book-form', 'bookCollection', '.booklist-table');
