@@ -10,7 +10,7 @@ class Book {
     this.displayBooks();
   }
 
-  updateDataLocalStorage() {
+  updateLocalStorageData() {
     // This method will update data in localStorage
     localStorage.setItem(this.bookCollectionName, JSON.stringify(this.bookCollection));
   }
@@ -21,13 +21,13 @@ class Book {
       return;
     }
     this.bookCollection.push({ title, author });
-    this.updateDataLocalStorage();
+    this.updateLocalStorageData();
     this.displayBooks();
   }
 
   removeBookFromList(index) {
     this.bookCollection.splice(index, 1);
-    this.updateDataLocalStorage();
+    this.updateLocalStorageData();
     this.displayBooks();
   }
 
