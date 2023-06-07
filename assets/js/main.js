@@ -87,7 +87,6 @@ class Book {
 
 const bookList = new Book('#book-form', 'bookCollection', '.booklist-table');
 
-
 // Dynamic content section code
 function toggleElement(target) {
   const allSiblinsElem = document.querySelectorAll('.row')
