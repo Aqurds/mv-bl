@@ -101,6 +101,7 @@ function toggleElement(target) {
   });
 }
 
+// This function will show the target section & hide all other section
 function toggleNav(targetNav) {
   const elemUl = document.querySelector('.nav-list');
   const allUl = elemUl.querySelectorAll('a');
@@ -113,6 +114,7 @@ function toggleNav(targetNav) {
   });
 }
 
+// This function will highlight the active menu & deactivate all other menu
 const triggerElem = document.querySelectorAll('.nav-item');
 triggerElem.forEach((singleElem, index) => {
   singleElem.addEventListener('click', (e) => {
