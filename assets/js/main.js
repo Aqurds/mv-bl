@@ -58,7 +58,6 @@ class Book {
 
   displayBooks() {
     const bookList = document.querySelector(this.elemToInsertData);
-    bookList.innerHTML = '';
     bookList.innerHTML = this.generateHtmlForBookList();
     this.activateRemoveButton();
     this.formInputFieldNormalize();
