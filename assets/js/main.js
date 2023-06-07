@@ -4,28 +4,28 @@ class Book {
     this.elemToInsertData = elemToInsertData;
     this.formElem = document.querySelector(formElem);
     this.bookCollection = JSON.parse(localStorage.getItem(this.bookCollectionName)) || [];
-    this.addEventHandler();
+    this.addFormEventHandler();
     this.displayBooks();
   }
 
-  updateData() {
+  updateDataLocalStorage() {
     // This method will update data in localStorage
     localStorage.setItem(this.bookCollectionName, JSON.stringify(this.bookCollection));
   }
 
-  addBook(title, author) {
+  addBookToList(title, author) {
     if (!title || !author) {
       alert('Please, insert title & author!');
       return;
     }
     this.bookCollection.push({ title, author });
-    this.updateData();
+    this.updateDataLocalStorage();
     this.displayBooks();
   }
 
-  removeBook(index) {
+  removeBookFromList(index) {
     this.bookCollection.splice(index, 1);
-    this.updateData();
+    this.updateDataLocalStorage();
     this.displayBooks();
   }
 
@@ -49,7 +49,7 @@ class Book {
     const btn = table.querySelectorAll('button');
     btn.forEach((btnR, index) => {
       btnR.addEventListener('click', () => {
-        this.removeBook(index);
+        this.removeBookFromList(index);
       });
     });
   }
@@ -59,16 +59,18 @@ class Book {
     bookList.innerHTML = '';
     bookList.innerHTML = this.generateHtmlForBookList();
     this.activateRemoveButton();
+    const titleInput = document.querySelector('.book-title').value = '';
+    const authorInput = document.querySelector('.book-author').value = '';
   }
 
-  addEventHandler() {
+  addFormEventHandler() {
     this.formElem.addEventListener('submit', (e) => {
       e.preventDefault();
       const titleInput = document.querySelector('.book-title');
       const authorInput = document.querySelector('.book-author');
-      this.addBook(titleInput.value, authorInput.value);
-      titleInput.value = '';
-      authorInput.value = '';
+      this.addBookToList(titleInput.value, authorInput.value);
+      titleInput.value = '' || titleInput.value;
+      authorInput.value = '' || authorInput.value;
     });
   }
 }
