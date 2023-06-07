@@ -4,7 +4,9 @@ class Book {
     this.elemToInsertData = elemToInsertData;
     this.formElem = document.querySelector(formElem);
     this.bookCollection = JSON.parse(localStorage.getItem(this.bookCollectionName)) || [];
-    this.addFormEventHandler();
+    this.bookTitleField = document.querySelector('.book-title');
+    this.bookAuthorField = document.querySelector('.book-author');
+    this.formEventHandler();
     this.displayBooks();
   }
 
@@ -59,18 +61,20 @@ class Book {
     bookList.innerHTML = '';
     bookList.innerHTML = this.generateHtmlForBookList();
     this.activateRemoveButton();
-    const titleInput = document.querySelector('.book-title').value = '';
-    const authorInput = document.querySelector('.book-author').value = '';
+    this.formInputFieldNormalize();
   }
 
-  addFormEventHandler() {
+  formInputFieldNormalize() {
+    this.bookTitleField.value = '';
+    this.bookAuthorField.value = '';
+  }
+
+  formEventHandler() {
     this.formElem.addEventListener('submit', (e) => {
       e.preventDefault();
-      const titleInput = document.querySelector('.book-title');
-      const authorInput = document.querySelector('.book-author');
-      this.addBookToList(titleInput.value, authorInput.value);
-      titleInput.value = '' || titleInput.value;
-      authorInput.value = '' || authorInput.value;
+      this.addBookToList(this.bookTitleField.value, this.bookAuthorField.value);
+      this.titleInput.value = '' || this.titleInput.value;
+      this.authorInput.value = '' || this.authorInput.value;
     });
   }
 }
