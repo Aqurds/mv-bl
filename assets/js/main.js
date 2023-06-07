@@ -90,46 +90,46 @@ const bookList = new Book('#book-form', 'bookCollection', '.booklist-table');
 
 // Dynamic content section code
 function toggleElement(target) {
-  const allSiblinsElem = document.querySelectorAll('.row')
+  const allSiblinsElem = document.querySelectorAll('.row');
   allSiblinsElem.forEach((elem, index) => {
-    if (elem.className.split(' ')[1] == target) {
-      elem.classList.remove('content-inactive')
-      elem.classList.add('content-active')
+    if (elem.className.split(' ')[1] === target) {
+      elem.classList.remove('content-inactive');
+      elem.classList.add('content-active');
     } else {
-      elem.classList.remove('content-active')
-      elem.classList.add('content-inactive')
+      elem.classList.remove('content-active');
+      elem.classList.add('content-inactive');
     }
-  })
-};
+  });
+}
 
 function toggleNav(targetNav) {
   const elemUl = document.querySelector('.nav-list');
   const allUl = elemUl.querySelectorAll('a');
   allUl.forEach((elem, index) => {
-    if (elem == targetNav) {
-      elem.classList.add('nav-active')
+    if (elem === targetNav) {
+      elem.classList.add('nav-active');
     } else {
-      elem.classList.remove('nav-active')
+      elem.classList.remove('nav-active');
     }
-  })
-};
+  });
+}
 
-const triggerElem = document.querySelectorAll('.nav-item')
+const triggerElem = document.querySelectorAll('.nav-item');
 triggerElem.forEach((singleElem, index) => {
   singleElem.addEventListener('click', (e) => {
     e.preventDefault();
     const targetSection = singleElem.className;
-    const targetSectionClass = singleElem.getAttribute('data-target')
-    toggleElement(targetSectionClass)
-    toggleNav(singleElem)
-  })
-})
+    const targetSectionClass = singleElem.getAttribute('data-target');
+    toggleElement(targetSectionClass);
+    toggleNav(singleElem);
+  });
+});
 
 // Set date & time dynamically in "under navigation" & footer
-const dateTime = new Date()
-const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const dateTime = new Date();
+const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const currentYear = dateTime.getFullYear();
 const currentMonth = monthList[dateTime.getMonth()];
-const currentDateTimeString = dateTime.toLocaleString().split('/')
+const currentDateTimeString = dateTime.toLocaleString().split('/');
 document.querySelector('#date-time').innerHTML = `${currentMonth} ${currentDateTimeString[1]} ${currentDateTimeString[2]}`;
 document.querySelector('#footer-year').innerHTML = currentYear;

@@ -85,6 +85,7 @@ li {
   border: 3px solid black;
   border-radius: 0px;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -102,6 +103,10 @@ li {
 .nav-list li {
   padding: 0px 20px;
   border-right: 2px solid black;
+}
+
+.contact ul li {
+  list-style: disc;
 }
 
 .nav-list li:last-child {
@@ -135,10 +140,6 @@ li {
 .contact {
   display: none;
   margin-top: 20px;
-}
-
-.contact ul li {
-  list-style: disc;
 }
 
 .content-active {
