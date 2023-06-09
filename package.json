@@ -1,0 +1,23 @@
+{
+  "name": "mv-bl",
+  "version": "1.0.0",
+  "description": "book-organizer",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aqurds/mv-bl.git"
+  },
+  "keywords": [
+    "mv-bl"
+  ],
+  "author": "Omar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aqurds/mv-bl/issues"
+  },
+  "homepage": "https://github.com/Aqurds/mv-bl#readme"
+}
