@@ -7,4 +7,4 @@ export default function dateTime() {
   const currentDateTimeString = dateTime.toLocaleString().split('/');
   document.querySelector('#date-time').innerHTML = `${currentMonth} ${currentDateTimeString[1]} ${currentDateTimeString[2]}`;
   document.querySelector('#footer-year').innerHTML = currentYear;
-};
+}

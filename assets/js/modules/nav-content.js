@@ -37,4 +37,4 @@ export default function navContent() {
       toggleNav(singleElem);
     });
   });
-};
+}
