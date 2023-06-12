@@ -1,6 +1,6 @@
-export let navContent = () => {
+const navContent = () => {
   // Dynamic content section code
-  let toggleElement = (target) => {
+  const toggleElement = (target) => {
     const allSiblinsElem = document.querySelectorAll('.row');
     allSiblinsElem.forEach((elem, index) => {
       if (elem.className.split(' ')[1] === target) {
@@ -14,7 +14,7 @@ export let navContent = () => {
   }
 
   // This function will show the target section & hide all other section
-  let toggleNav = (targetNav) => {
+  const toggleNav = (targetNav) => {
     const elemUl = document.querySelector('.nav-list');
     const allUl = elemUl.querySelectorAll('a');
     allUl.forEach((elem, index) => {
@@ -24,7 +24,7 @@ export let navContent = () => {
         elem.classList.remove('nav-active');
       }
     });
-  }
+  };
 
   // This function will highlight the active menu & deactivate all other menu
   const triggerElem = document.querySelectorAll('.nav-item');
@@ -37,4 +37,6 @@ export let navContent = () => {
       toggleNav(singleElem);
     });
   });
-}
+};
+
+export default navContent;
