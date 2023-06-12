@@ -87,5 +87,4 @@ export default class Book {
       this.authorInput.value = "" || this.authorInput.value;
     });
   }
-}
-``
+};
