@@ -3,22 +3,26 @@ export default class Book {
     this.bookCollectionName = bookCollectionName;
     this.elemToInsertData = elemToInsertData;
     this.formElem = document.querySelector(formElem);
-    this.bookCollection = JSON.parse(localStorage.getItem(this.bookCollectionName)) || [];
-    this.bookTitleField = document.querySelector('.book-title');
-    this.bookAuthorField = document.querySelector('.book-author');
+    this.bookCollection =
+      JSON.parse(localStorage.getItem(this.bookCollectionName)) || [];
+    this.bookTitleField = document.querySelector(".book-title");
+    this.bookAuthorField = document.querySelector(".book-author");
     this.formEventHandler();
     this.displayBooks();
   }
 
   updateLocalStorageData() {
     // This method will update data in localStorage
-    localStorage.setItem(this.bookCollectionName, JSON.stringify(this.bookCollection));
+    localStorage.setItem(
+      this.bookCollectionName,
+      JSON.stringify(this.bookCollection)
+    );
   }
 
   addBookToList(title, author) {
     // This method will add a new book into the booklist
     if (!title || !author) {
-      alert('Please, insert title & author!');
+      alert("Please, insert title & author!");
       return;
     }
     this.bookCollection.push({ title, author });
@@ -35,7 +39,7 @@ export default class Book {
 
   generateHtmlForBookList() {
     // This method will generate HTML element for the complete booklist
-    let boilerPlate = '';
+    let boilerPlate = "";
     this.bookCollection.forEach((book, index) => {
       boilerPlate += `<tr class="book-item">
         <td>"${book.title}" by ${book.author}</td>
@@ -51,10 +55,10 @@ export default class Book {
 
   activateRemoveButton() {
     // This method will add & activate remove event on remove button in each book row
-    const table = document.querySelector('.booklist-table');
-    const btn = table.querySelectorAll('button');
+    const table = document.querySelector(".booklist-table");
+    const btn = table.querySelectorAll("button");
     btn.forEach((btnR, index) => {
-      btnR.addEventListener('click', () => {
+      btnR.addEventListener("click", () => {
         this.removeBookFromList(index);
       });
     });
@@ -70,17 +74,17 @@ export default class Book {
 
   formInputFieldNormalize() {
     // This method will normalize the form input fields
-    this.bookTitleField.value = '';
-    this.bookAuthorField.value = '';
+    this.bookTitleField.value = "";
+    this.bookAuthorField.value = "";
   }
 
   formEventHandler() {
     // This method will handle the form event
-    this.formElem.addEventListener('submit', (e) => {
+    this.formElem.addEventListener("submit", (e) => {
       e.preventDefault();
       this.addBookToList(this.bookTitleField.value, this.bookAuthorField.value);
-      this.titleInput.value = '' || this.titleInput.value;
-      this.authorInput.value = '' || this.authorInput.value;
+      this.titleInput.value = "" || this.titleInput.value;
+      this.authorInput.value = "" || this.authorInput.value;
     });
   }
 }
