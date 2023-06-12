@@ -22,7 +22,10 @@
         "functions": false
       }],
       "no-alert": "off",
-      "no-undef": "off"
+      "no-undef": "off",
+      "operator-linebreak": "off",
+      "quotes": "off",
+      "comma-dangle": "off"
     },
     "ignorePatterns": [
       "dist/",
