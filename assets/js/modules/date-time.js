@@ -1,5 +1,3 @@
-import { luxon } from "./luxon.min.js";
-
 let dateTimeCustom = () => {
   document.querySelector('#date-time').innerHTML = luxon.DateTime.local().toLocaleString(luxon.DateTime.DATETIME_FULL_WITH_SECONDS)
 
