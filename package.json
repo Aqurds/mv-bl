@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Aqurds/mv-bl/issues"
   },
-  "homepage": "https://github.com/Aqurds/mv-bl#readme"
+  "homepage": "https://github.com/Aqurds/mv-bl#readme",
+  "dependencies": {
+    "luxon": "^3.3.0"
+  }
 }

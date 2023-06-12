@@ -21,7 +21,8 @@
       "no-use-before-define": ["error", {
         "functions": false
       }],
-      "no-alert": "off"
+      "no-alert": "off",
+      "no-undef": "off"
     },
     "ignorePatterns": [
       "dist/",
