@@ -1,6 +1,6 @@
-export default function navContent() {
+export let navContent = () => {
   // Dynamic content section code
-  function toggleElement(target) {
+  let toggleElement = (target) => {
     const allSiblinsElem = document.querySelectorAll('.row');
     allSiblinsElem.forEach((elem, index) => {
       if (elem.className.split(' ')[1] === target) {
@@ -14,7 +14,7 @@ export default function navContent() {
   }
 
   // This function will show the target section & hide all other section
-  function toggleNav(targetNav) {
+  let toggleNav = (targetNav) => {
     const elemUl = document.querySelector('.nav-list');
     const allUl = elemUl.querySelectorAll('a');
     allUl.forEach((elem, index) => {
