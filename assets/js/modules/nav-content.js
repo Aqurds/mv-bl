@@ -11,7 +11,7 @@ const navContent = () => {
         elem.classList.add('content-inactive');
       }
     });
-  }
+  };
 
   // This function will show the target section & hide all other section
   const toggleNav = (targetNav) => {
