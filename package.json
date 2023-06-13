@@ -2,7 +2,7 @@
   "name": "mv-bl",
   "version": "1.0.0",
   "description": "book-organizer",
-  "main": "main.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +22,8 @@
   "homepage": "https://github.com/Aqurds/mv-bl#readme",
   "dependencies": {
     "luxon": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0"
   }
 }
